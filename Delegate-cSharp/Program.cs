@@ -16,16 +16,16 @@ namespace Delegate_cSharp
 
     public class Raport 
     {
-        public delegate bool RaportDelegate(Medewerker mw);
+        public delegate bool Condetion(Medewerker mw);
 
-        public void prosesMedewerker(Medewerker[] medewerker,string title, RaportDelegate raportDelegate)
+        public void prosesMedewerker(Medewerker[] medewerker,string title, Condetion condetion)
         {
             Console.WriteLine(title);
             Console.WriteLine("-------------------------------------");
 
             foreach (var m in medewerker)
             {
-                if (raportDelegate(m))
+                if (condetion(m))
                 {
                     Console.WriteLine($"{m.ID} | {m.Name} | {m.TotalSel}");
                 }
