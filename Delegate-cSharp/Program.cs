@@ -57,7 +57,27 @@ namespace Delegate_cSharp
             raport.prosesMedewerker(medewerker, "kliener of gelijk dan 5000", m => m.TotalSel <= 5000);
             raport.prosesMedewerker(medewerker, "midden", m => m.TotalSel > 5000 && m.TotalSel < 8000);
 
+
+            DateTime dt = DateTime.Now;
+            Console.WriteLine(dt);
+
+            DateTimeOffset dateTimeOffset = DateTimeOffset.Now;
+            Console.WriteLine(dateTimeOffset);
+            dateTimeOffset = DateTimeOffset.UtcNow;
+            Console.WriteLine(dateTimeOffset);
+            Console.WriteLine(IsWeenkend(dt));
+
             Console.ReadKey();
         }
+
+        public static bool IsWeenkend(DateTime date)
+        {
+            return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
     }
+
+
+
+
+
 }
