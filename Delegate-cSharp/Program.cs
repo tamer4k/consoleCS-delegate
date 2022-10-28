@@ -67,6 +67,16 @@ namespace Delegate_cSharp
             Console.WriteLine(dateTimeOffset);
             Console.WriteLine(IsWeenkend(dt));
 
+
+            string naam = null;
+            string naam1 = naam ?? "Tamer";
+
+            Console.WriteLine(naam);
+
+            naam1 = naam1 is null ? null : naam1.ToUpper();
+
+            Console.WriteLine(naam1);
+
             Console.ReadKey();
         }
 
