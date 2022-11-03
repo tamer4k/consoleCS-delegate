@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace Delegate_cSharp
@@ -68,14 +70,11 @@ namespace Delegate_cSharp
             Console.WriteLine(IsWeenkend(dt));
 
 
-            string naam = null;
-            string naam1 = naam ?? "Tamer";
 
-            Console.WriteLine(naam);
 
-            naam1 = naam1 is null ? null : naam1.ToUpper();
+            Console.WriteLine(Process.GetCurrentProcess().Id );
+            Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
 
-            Console.WriteLine(naam1);
 
             Console.ReadKey();
         }
