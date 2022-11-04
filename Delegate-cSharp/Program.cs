@@ -8,6 +8,31 @@ using System.Threading.Tasks;
 
 namespace Delegate_cSharp
 {
+    public class Student
+    {
+        private int Id { get; set; }
+        private string name { get; set; }
+
+        private Student()
+        {
+
+        }
+        private Student(int id, string name)
+        {
+            this.Id = id;
+            this.name = name;
+        }
+
+        public static Student Create(int iC, string nameC)
+        {
+            return new Student(iC, nameC);
+        }
+
+        public string getStudents()
+        {
+            return $"Id: {Id} / Name: {name} \n";
+        }
+    }
     public class Medewerker
     {
         public int ID { get; set; }
@@ -40,6 +65,11 @@ namespace Delegate_cSharp
     {
         static void Main(string[] args)
         {
+
+            Student s1 = Student.Create(1,"Tamer");
+            Console.WriteLine(s1.getStudents());
+            Console.WriteLine("=================");
+
             var medewerker = new Medewerker[]
             {
                 new Medewerker{ID = 1, Name = "A", TotalSel = 3000},
@@ -50,7 +80,6 @@ namespace Delegate_cSharp
                 new Medewerker{ID = 6, Name = "F", TotalSel = 8000},
                 new Medewerker{ID = 7, Name = "G", TotalSel = 9000},
                 new Medewerker{ID = 8, Name = "H", TotalSel = 10000},
-
             };
 
 
@@ -75,6 +104,7 @@ namespace Delegate_cSharp
             Console.WriteLine(Process.GetCurrentProcess().Id );
             Console.WriteLine(Thread.CurrentThread.ManagedThreadId);
 
+            Console.WriteLine(Program.Mix2(1, 2)); 
 
             Console.ReadKey();
         }
@@ -82,6 +112,27 @@ namespace Delegate_cSharp
         public static bool IsWeenkend(DateTime date)
         {
             return date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday;
+        }
+
+
+        static int Mix(int value1, int value2)
+        {
+            if (value1 > value2)
+            {
+                return 1;
+            }else if (value1 < value2)
+            {
+                return -1;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+        static int Mix2(int value1, int value2)
+        {
+
+            return value1 > value2 ? 1 : value1 < value2 ? -1 :0;
         }
     }
 
