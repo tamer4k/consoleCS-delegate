@@ -13,9 +13,9 @@ namespace Delegate_cSharp
         private int Id { get; set; }
         private string name { get; set; }
 
-        private Student()
+        private Student(int id)
         {
-
+            this.Id = id;
         }
         private Student(int id, string name)
         {
@@ -23,11 +23,14 @@ namespace Delegate_cSharp
             this.name = name;
         }
 
-        public static Student Create(int iC, string nameC)
+        public static Student Create(int idCrete, string nameCrete)
         {
-            return new Student(iC, nameC);
+            return new Student(idCrete, nameCrete);
         }
-
+        public static Student Create(int idCrete)
+        {
+            return new Student(idCrete);
+        }
         public string getStudents()
         {
             return $"Id: {Id} / Name: {name} \n";
@@ -67,7 +70,9 @@ namespace Delegate_cSharp
         {
 
             Student s1 = Student.Create(1,"Tamer");
+            Student s2 = Student.Create(2);
             Console.WriteLine(s1.getStudents());
+            Console.WriteLine(s2.getStudents());
             Console.WriteLine("=================");
 
             var medewerker = new Medewerker[]
